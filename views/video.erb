@@ -7,6 +7,11 @@
 <%if session[:visited] && @i.favtoggle== nil%>
     <form action="/video/addfav/<%=@i.id%>" method="post"><button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
     </button></form>
+    <form id="deleteimage" action="/video/delete/<%=@i.id%>" method="post"> <button class="ui icon red button" type="Submit" name="delete"><i class="delete icon"></i>
+    </button></form>
+
+    <form id="editimage" action="/image/edit/<%=@i.id%>" method="post"> <button class="ui icon green button" type="Submit" name="edit"><i class="edit icon"></i>
+    </button></form>
 
 <%end%>
 <% if session[:visited] && @i.favtoggle == 1 %>
@@ -14,12 +19,12 @@
     <div class="ui icon buttons">
       <form action="/video/addfav/<%=@i.id%>" method="post"> <button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
       </button></form>
-
       <form id="deleteimage" action="/video/delete/<%=@i.id%>" method="post"> <button class="ui icon red button" type="Submit" name="delete"><i class="delete icon"></i>
       </button></form>
 
       <form id="editimage" action="/image/edit/<%=@i.id%>" method="post"> <button class="ui icon green button" type="Submit" name="edit"><i class="edit icon"></i>
       </button></form>
+
     </div>
 
 <%end%>
