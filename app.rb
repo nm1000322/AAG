@@ -237,6 +237,7 @@ end
 =end
   redirect '/gallery'
 end
+end
 post '/uploadvid' do
   i = Video.new
   i.name = params[:name]
@@ -272,7 +273,7 @@ end
     v.destroy
     redirect '/theater'
   end
-end
+
 end
 
 
