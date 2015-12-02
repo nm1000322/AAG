@@ -265,7 +265,13 @@ post '/video/remfav/:id' do
 end
 post '/upload' do
   v = Image.new
+
 end
+  post '/video/delete/:id' do
+    v = Video.first(:id => params[:id])
+    v.destroy
+    redirect '/theater'
+  end
 end
 end
 
