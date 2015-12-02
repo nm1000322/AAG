@@ -195,7 +195,7 @@ i.tag = params[:tag]
 i.caption = params[:caption]
 i.date = time
 i.favtoggle = nil
-
+puts i.url
 i.save
 
 
