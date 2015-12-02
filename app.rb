@@ -1,19 +1,5 @@
-
-
-#comment this when not heroku
 class AAG < Sinatra::Base
-
-
-  #Comment this when uploading to heroku
-=begin
-  require 'bundler'
-  Bundler.require
-=end
-  #Comment this when uploading to heroku
-
-
-
-  include BCrypt
+include BCrypt
 
 
 configure do
@@ -282,9 +268,6 @@ end
     v.destroy
     redirect '/theater'
   end
-#uncomment this for heroku
-end
-
 
 
 
