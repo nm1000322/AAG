@@ -184,18 +184,13 @@ post '/user/auth' do
 end
 
 post '/uploading' do
-if params[:uptoggle] == 1
-name=Cloudinary::Uploader.upload(params['myfile'][:tempfile],api_key: ENV["Cloudinary_api"], api_secret: ENV["Cloudinary_secret"], cloud_name: ENV["Cloudinary_name"])
-end
+  name=Cloudinary::Uploader.upload(params['myfile'][:tempfile],api_key: ENV["Cloudinary_api"], api_secret: ENV["Cloudinary_secret"], cloud_name: ENV["Cloudinary_name"])
 time = Time.new
 
 i = Image.new
 @t = time.strftime("Posted on %A, %b %d %Y")
 i.name = params[:name]
-if params[:uptoggle] == 1
 i.url = name["url"]
-else
-  i.url = params[:url]
 i.tag = params[:tag]
 i.caption = params[:caption]
 i.date = time
