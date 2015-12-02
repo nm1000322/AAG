@@ -15,9 +15,6 @@ use Rack::Session::Cookie, :key => 'rack.session',
 
 
 
-DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://db/main.db')
-require './models.rb'
-
 
 get '/' do
 
