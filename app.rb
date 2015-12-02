@@ -1,8 +1,4 @@
-
-require 'rubygems'
-require 'bundler'
-Bundler.require
-
+class AAG < Sinatra::Base
 include BCrypt
 
 
@@ -266,7 +262,9 @@ post '/video/remfav/:id' do
 end
 post '/upload' do
   v = Image.new
-  end
+end
+end
+
 
 
 
