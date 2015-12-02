@@ -1,0 +1,96 @@
+<br><div>   </div><div class="title">Alia's Gallery</div><br><br>
+<% if request.env['PATH_INFO']=="/gallery/search" %>
+
+<%end  %>
+<div class="ui two column centered grid">
+  <div class="two wide column"></div>
+  <div class="two wide column">
+    <div class="search">
+
+
+
+
+
+
+
+      <form class="ui small form" action="/search" method="post">
+        <div class="field">
+          <input type="text" name="tag" placeholder="Search by Tag">
+        </div>
+        <button class="ui green button"type="submit" name="push">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="two wide column"></div>
+</div>
+
+</div>
+<%if session[:visited]%>
+    <div class="title">
+<button class="ui blue button" id="addimage">Add Image</button></div><br>
+    <div class="ui modal">
+      <div class="header">Add Image</div>
+      <div class="content">
+
+        <form class="form create img" method="post" action="/uploading" enctype='multipart/form-data' name="">
+          Name: <div class="ui input"><input class="ui input" type="text" name="name" placeholer="Name"></div><br><br>
+<!--          Add via URL<div class="ui input"> <input type="checkbox" name="uptoggle"></div><br>-->
+          Type of Image (Ex. fashion)<div class="ui input"><input class="ui input" type="text" name="type" placeholer="Type"></div><br>
+          Image URL: <div class="ui input"><input class="ui input" type="text" name="url" placeholer="Image URL"></div><br><br>
+          Caption: <div class="field"><textarea name="caption" placeholder="Type the caption here"></textarea></div><br><br>
+                    <input type="file" name="myfile">
+
+
+          <button class="ui button" type="submit">Add to Gallery</button>
+        </form>
+
+      </div>
+    </div>
+
+
+
+<%end%>
+<div class="ui fluid buttons menu">
+  <a href="/gallery"class="ui blue button">All Images</a>
+  <a href="/gallery/drawing" class="ui button">Drawings</a>
+  <a href="/gallery/painting" class="ui button">Paintings</a>
+  <a href="/gallery/fashion" class="ui button">Fashion</a>
+</div>
+<div class="ui centered stackable five column grid">
+
+<% @image.each do |image|%>
+   <div class="column">
+    <div class="ui card">
+      <a class="image" href="/image/<%=image.id%>">
+        <img src="<%=image.url %>">
+      </a>
+
+      <div class="content">
+        <a >
+        <div class="header"><a href="/image/<%=image.id%>"><%=image.name%></a>
+          <%if session[:visited] && image.favtoggle==1%>
+              <i id="yellowstar" class="icon star"></i>
+          <%end%>
+    </div>
+        </a>
+          </a>
+       <div class="meta">
+          <span class="date"><%=image.date.strftime("Image posted on %A, %b %d %Y")%></span><br>
+            <%= image.type.capitalize %>
+        </div>
+        <div class="description">
+          <%=image.caption%>
+        </div>
+      </div>
+
+      <div class="extra content">
+        <a>
+          <%=image.tag%>
+        </a>
+      </div>
+    </div>
+      </div>
+
+<%end%>
+
+</div>

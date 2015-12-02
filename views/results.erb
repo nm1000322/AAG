@@ -1,0 +1,30 @@
+<h1>Search results for "<%=@name%>"</h1>
+
+<%@t.each do |image|%>
+    <div class="column">
+      <div class="ui card">
+        <a class="image" href="/image/<%=image.id%>">
+          <img src= "<%=image.url %>">
+        </a>
+
+        <div class="content">
+          <a >
+            <a class="header"><%=image.name%></a>
+          </a>
+          <!--        <div class="meta">
+                    <span class="date">Joined in 2013</span>
+                  </div>-->
+          <div class="description">
+            <%=image.caption%>
+          </div>
+        </div>
+
+        <div class="extra content">
+          <a>
+            <%=image.tag%>
+          </a>
+        </div>
+      </div>
+    </div>
+
+<%end%>

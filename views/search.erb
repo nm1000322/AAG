@@ -1,0 +1,79 @@
+<div class="title">Alia's Gallery</div><br><br>
+
+<div class="ui two column centered grid">
+  <div class="two wide column"></div>
+  <div class="two wide column">
+  <div class="two wide column"></div>
+  <div class="two wide column">
+    <div class="search">
+      <form class="ui small form" action="/search" method="post">
+        <div class="field">
+          <input type="text" name="tag" placeholder="Search by Tag">
+        </div>
+        <button class="ui green button"type="submit" name="push">Search</button>
+      </form><br>
+      <a class="ui orange button" href="/gallery">Back to Gallery</a>
+    </div>
+  </div>
+  <div class="two wide column"></div>
+  </div>
+  <div class="two wide column"></div>
+</div>
+</div><br>
+<%if session[:visited]%>
+    <div class="title">
+      <button class="ui blue button" id="addimage">Add Image</button></div><br>
+    <div class="ui modal">
+      <div class="header">Add Image</div>
+      <div class="content">
+
+        <form method="post" action="/uploading">
+          Name: <div class="ui input"><input class="ui input" type="text" name="name" placeholer="Name"></div><br><br>
+          Image URL: <div class="ui input"><input class="ui input" type="text" name="url" placeholer="Image URL"></div><br><br>
+          Image Tag: <div class="ui input"><input class="ui input" type="text" name="tag" placeholer="Tag"></div><br><br>
+          Caption: <div class="field"><textarea name="caption" placeholder="Type the caption here"></textarea></div><br><br>
+          <button class="ui button" type="submit">Add to Gallery</button>
+        </form>
+
+      </div>
+    </div>
+
+
+
+<%end%>
+<div class="ui centered stackable five column grid">
+
+  <% @image.each do |image|%>
+      <div class="column">
+        <div class="ui card">
+          <a class="image" href="/image/<%=image.id%>">
+            <img src="<%=image.url %>">
+          </a>
+
+          <div class="content">
+            <a >
+              <a class="header"><%=image.name%></a>
+            </a>
+            <!--        <div class="meta">
+                      <span class="date">Joined in 2013</span>
+                    </div>-->
+            <div class="description">
+              <%=image.caption%>
+            </div>
+          </div>
+
+          <div class="extra content">
+            <a>
+              <%=image.tag%>
+            </a>
+          </div>
+        </div>
+      </div>
+
+  <%end%>
+  <%if @image == nil%>
+      <%else%>
+      <div>Sorry! Nothing here!</div>
+      <%=puts "Top Banana!"%>
+      <%end%>
+</div>

@@ -1,0 +1,159 @@
+
+
+<div class="title">Alia's Art</div> <br>
+<br>
+
+<br>
+<div class="ui horizontal divider">
+  <div class="sep">Featured Art</div>
+</div><br>
+<div class="ui centered stackable five column grid">
+
+  <% @image.each do |image|%>
+      <div class="column">
+        <div class="ui card">
+          <a class="image" href="/image/<%=image.id%>">
+            <img src="<%=image.url %>">
+          </a>
+
+          <div class="content">
+            <a >
+              <a class="header"><%=image.name%>
+                <%if session[:visited] && image.favtoggle== nil%>
+                    <i class="icon star"></i>
+                <%end%>
+                <%if session[:visited] && image.favtoggle==1%>
+                    <a method="post" href="/addfav"><i id="yellowstar" class="icon star"></i></a>
+                <%end%>
+
+              </a>
+            </a>
+            <div class="meta">
+              <span class="date"><%=image.date.strftime("Image posted on %A, %b %d %Y")%></span>
+            </div>
+            <div class="description">
+              <%=image.caption%>
+            </div>
+          </div>
+
+          <div class="extra content">
+            <a>
+              <%=image.tag%>
+            </a>
+          </div>
+        </div>
+      </div>
+
+  <%end%>
+
+
+
+
+
+
+
+
+</div>
+<div class="ui horizontal divider">
+  <div class="sep">Featured Animation</div>
+</div><br>
+<div class="ui centered stackable five column grid">
+
+<% @video.each do |video|%>
+    <div class="column">
+      <div class="ui card">
+        <a class="image" href="/video/<%=video.id%>">
+          <iframe class="video" width="295" height="157.5" src="https://www.youtube.com/embed/<%=video.embed%>?rel=0" frameborder="0"></iframe>
+        </a>
+
+        <div class="content">
+          <a>
+            <a class="header"><a href="/video/<%=video.id%>"><%=video.name%></a>
+              <%if session[:visited] && video.favtoggle== nil%>
+                  <i class="icon star"></i>
+              <%end%>
+              <%if session[:visited] && video.favtoggle==1%>
+                  <a method="post" href="/addfav"><i id="yellowstar" class="icon star"></i></a>
+              <%end%>
+
+            </a>
+          </a>
+          <div class="description">
+            <%=video.caption%>
+          </div>
+        </div>
+
+        <div class="extra content">
+          <a>
+            <%=video.tag%>
+          </a>
+        </div>
+      </div>
+    </div>
+
+<%end%>
+</div>
+<div class="test"></div>
+
+<div class="ui horizontal divider">
+  <div class="sep">Featured Drawings</div>
+</div><br>
+
+<div class="ui horizontal divider">
+  <div class="sep">Featured Fashion</div>
+
+
+</div>
+
+<% if @signup%>
+<form method="post" action="/user/create">
+  Username: <div class="ui input"><input type="text" name="username" placeholder="Username"  required></div><br><br>
+  Password: <div class="ui input"><input class="ui input" type="password" name="password" placeholder="Password" required></div><br><br>
+  <button class="ui button" type="submit">Sign in</button>
+</form>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

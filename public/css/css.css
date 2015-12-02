@@ -1,0 +1,64 @@
+body{
+
+}
+.title{
+  text-align:center;
+  color:black;
+  font-size: 72px;
+  font-family:'Roboto', sans-serif;
+  font-weight: 100;
+}
+.search{
+  text-align: center;
+}
+
+
+.video{
+  width:100%;
+}
+.block{
+  font-family:'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 30px;
+  text-align: center;
+
+}
+
+#yellowstar{
+  color:black;
+
+}
+#yellowstar:hover{
+  color:black;
+}
+#activstar{
+  color:yellow;
+}
+.videopage{
+
+}
+.videocenter{
+  text-align:center;
+}
+#vidbread{
+  position: static;
+}
+.subtitle{
+  text-align:center;
+  color:black;
+  font-size: 33px;
+  font-family:'Roboto', sans-serif;
+  font-weight: 100;
+}
+.sep{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.ui.fluid.buttons.menu{
+  padding: 10px;
+}
+.ui.centered.massive.image.rounded.img{
+
+}

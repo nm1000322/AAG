@@ -1,0 +1,58 @@
+<div class="title">Alia's Blog</div><br><br>
+
+<% if session[:id]%>
+    <div class="title"><a class="ui blue button" id="addpost">New Post</a></div>
+    <div class="ui modal">
+      <div class="header">Add Post</div>
+      <div class="content">
+        <form method="post" action="/newpost">
+          Name: <div class="ui input"><input class="ui input" type="text" name="name" placeholer="Name"></div><br><br>
+          Post Tag: <div class="ui input"><input class="ui input" type="text" name="tag" placeholer="Tag"></div><br><br>
+          Image URL *Optional*: <div class="ui input"><input class="ui input" type="text" name="imgurl" placeholer="Tag"></div><br><br>
+          Content: <div class="field"><textarea name="content" placeholder="Type the caption here"></textarea></div><br><br>
+          <button class="ui button" type="submit">Post</button>
+        </form>
+
+      </div>
+    </div>
+<%end%><br><br>
+
+<div class="ui centered three column grid">
+  <div class="column">
+<% @post.each do |post|%>
+
+
+
+<div class="ui fluid centered link card">
+    <%if post.imgurl == nil%>
+
+      <%else%>
+      <img src="<%=post.imgurl%>">
+      <%end%>
+      <div class="content">
+        <a>
+          <a class="header"><%=post.name%></a>
+          <%if session[:id]%>
+          <form action="/rempost/<%=post.id%>" method="post"> <button class="ui icon red tiny button" type="Submit" name="Delete">Delete<i id="yellowstar" class="delete icon"></i>
+          </button></form>
+              <%end%>
+        </a>
+            <div class="meta">
+                  <span class="date">Joined in 2013</span>
+                </div>
+        <div class="description">
+          <%=post.content%>
+        </div>
+      </div>
+
+      <div class="extra content">
+        <a>
+          <%=post.tag%>
+        </a>
+      </div>
+    </div>
+
+
+<%end%>
+    </div>
+    </div>

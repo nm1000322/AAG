@@ -1,0 +1,50 @@
+<h1 class="title"><strong><%=@i.name %></strong></h1>
+<br><div class="subtitle">
+
+  <%if session[:visited] && @i.favtoggle== nil%>
+      <div class="ui icon buttons">
+      <form action="/addfav/<%=@i.id%>" method="post"> <button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
+      </button></form>
+
+      <form id="deleteimage" action="/image/delete/<%=@i.id%>" method="post"> <button class="ui icon red button" type="Submit" name="delete"><i class="delete icon"></i>
+      </button></form>
+
+      <form id="editimage" action="/image/edit/<%=@i.id%>" method="post"> <button class="ui icon green button" type="Submit" name="edit"><i class="edit icon"></i>
+      </button></form>
+      </div>
+
+
+  <%end%>
+  <%if session[:visited] && @i.favtoggle== 1%>
+
+
+
+      <div class="ui buttons">
+      <form id="deletefavimage" action="/remfav/<%=@i.id%>" method="post"> <button class="ui icon yellow button" type="Submit" name="unFavorite"><i id="activstar" class="star icon"></i>
+      </button></form>
+
+        <form id="deleteimage" action="/image/delete/<%=@i.id%>" method="post"> <button class="ui icon red button" type="Submit" name="delete"><i class="delete icon"></i>
+        </button></form>
+
+        <form id="editimage" action="/image/edit/<%=@i.id%>" method="post"> <button class="ui icon green button" type="Submit" name="edit"><i class="edit icon"></i>
+        </button></form>
+
+      </div>
+
+
+  <%end%><br><br>
+</div>
+<img class="ui centered massive image rounded img" src="<%=@i.url%>">
+
+<div class="ui horizontal divider">Caption</div>
+
+  <div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+<div class="block"><%= @i.caption %></div>
+    </div><br><br><br>
+    <div class="four wide column"></div>
+  </div><br><br><br>
+
+
+<div class="ui divider"></div>

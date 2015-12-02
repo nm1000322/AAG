@@ -1,0 +1,42 @@
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="vidbread" class="ui small breadcrumb">
+  <a href="/theater" class="section">Theater</a>
+  <i class="right chevron icon divider"></i>
+  <div class="active section"><%=@i.name%></div>
+</div>
+<div class="title"><%=@i.name %></div><br><br>
+<%if session[:visited] && @i.favtoggle== nil%>
+    <form action="/video/addfav/<%=@i.id%>" method="post"><button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
+    </button></form>
+
+<%end%>
+<% if session[:visited] && @i.favtoggle == 1 %>
+
+    <form action="/video/remfav/<%=@i.id%>" method="post"> <button class="ui right attached icon yellow button" type="Submit" name="Favorite"><i id="activstar" class="star icon"></i>
+    </button></form>
+
+<%end%>
+<br>
+<div class="videocenter">
+
+<iframe class="videopage" width="689" height="500" src="https://www.youtube.com/embed/<%=@i.embed%>?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="ui horizontal divider">
+  Caption
+</div>
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <div class="block"><%= @i.caption %><%if session[:visited] && @i.favtoggle== nil%>
+          <form action="/video/addfav/<%=@i.id%>" method="post"><button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
+          </button></form>
+
+      <%end%>
+      <% if session[:visited] && @i.favtoggle == 1 %>
+
+          <form action="/video/remfav/<%=@i.id%>" method="post"> <button class="ui right attached icon white button" type="Submit" name="Favorite"><i id="yellowstar" class="star icon"></i>
+          </button></form>
+
+      <%end%></div>
+  </div><br><br><br>
+  <div class="four wide column"></div>
+</div>

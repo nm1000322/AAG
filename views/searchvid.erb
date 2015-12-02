@@ -1,0 +1,75 @@
+<div class="title">Alia's Theater</div><br><br>
+
+
+<div class="ui two column centered grid">
+
+  <div class="two wide column">
+<div class="search">
+    <div class="search">
+      <form class="ui small form" action="/searchvid" method="post">
+        <div class="field">
+          <input type="text" name="tag" placeholder="Search by Tag">
+        </div>
+        <button class="ui green button"type="submit" name="push">Search</button>
+      </form>
+      </div>
+</div>
+    <div class="two wide column"></div>
+  </div>
+  </div>
+<div class="title"><a class="ui orange button" href="/theater">Back to full Theater</a></div><br>
+
+
+
+<%if session[:visited]%>
+    <div class="title"><button class="ui blue button" id="addimage">Add Image</button></div><br>
+    <div class="ui modal">
+      <div class="header">Add Image</div>
+      <div class="content">
+
+        <form method="post" action="/uploadvid">
+          Name: <div class="ui input"><input class="ui input" type="text" name="name" placeholer="Name"></div><br><br>
+          Youtube link: src="https://www.youtube.com/watchv?v=<div class="ui input"><input class="ui input" type="text" name="embed" placeholer="Youtube URL"></div><br><br>
+          Image Tag: <div class="ui input"><input class="ui input" type="text" name="tag" placeholer="Tag"></div><br><br>
+          Caption: <div class="field"><textarea name="caption" placeholder="Type the caption here"></textarea></div><br><br>
+          <button class="ui button" type="submit">Add to Gallery</button>
+        </form>
+
+      </div>
+    </div>
+
+
+
+<%end%>
+<div class="ui centered stackable six column grid">
+
+  <% @video.each do |video|%>
+      <div class="column">
+        <div class="ui link card">
+          <a class="image" href="/video/<%=video.id%>">
+            <iframe width="295" height="157.5" src="https://www.youtube.com/embed/<%=video.embed%>" frameborder="0" allowfullscreen></iframe>
+          </a>
+
+          <div class="content">
+            <a >
+              <a class="header" href><%=video.name%></a>
+            </a>
+            <!--        <div class="meta">
+                      <span class="date">Joined in 2013</span>
+                    </div>-->
+            <div class="description">
+              <%=video.caption%>
+            </div>
+          </div>
+
+          <div class="extra content">
+            <a>
+              <%=video.tag%>
+            </a>
+          </div>
+        </div>
+      </div>
+
+  <%end%>
+
+</div>

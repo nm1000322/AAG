@@ -1,0 +1,10 @@
+source "http://rubygems.org"
+
+gem 'sinatra'
+gem 'rake'
+gem 'pg'
+gem 'sequel'
+gem 'bcrypt'
+gem 'cloudinary'
+gem 'json'
+gem 'passenger'
