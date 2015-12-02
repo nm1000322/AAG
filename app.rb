@@ -267,7 +267,8 @@ post '/upload' do
   v = Image.new
 end
 end
-  
+end
+
 
 
 
