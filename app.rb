@@ -269,7 +269,7 @@ end
     redirect '/theater'
   end
 
-end
+
 
 
 
