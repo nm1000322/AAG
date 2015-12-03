@@ -24,6 +24,7 @@ get '/' do
 end
 
 get '/gallery' do
+
   @route = request.env['PATH_INFO']
   puts @route
   @user = User.first(:id => session[:id])
@@ -32,6 +33,7 @@ get '/gallery' do
 end
 
 get '/about' do
+
   @user = User.first(:id => session[:id])
   erb :aboutme
 end
