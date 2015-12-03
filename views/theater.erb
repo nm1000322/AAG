@@ -43,7 +43,7 @@
 
   <% @video.each do |video|%>
       <div class="column">
-        <div class="ui link card">
+        <div class="ui link fluid  centered stackable card">
           <a class="image" href="/video/<%=video.id%>">
             <iframe class="video" width="295" height="157.5" src="https://www.youtube.com/embed/<%=video.embed%>?rel=0" frameborder="0"></iframe>
           </a>
