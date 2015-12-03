@@ -26,7 +26,6 @@ end
 get '/gallery' do
 
   @route = request.env['PATH_INFO']
-  puts @route
   @user = User.first(:id => session[:id])
   @image = Image.all
   erb :gallery
