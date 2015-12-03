@@ -1,5 +1,5 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="vidbread" class="ui small breadcrumb">
-  <a href="/theater" class="section">Theater</a>
+  <a href="<%=  URI(request.referer || '').path%>" class="section">Previous Page</a>
   <i class="right chevron icon divider"></i>
   <div class="active section"><%=@i.name%></div>
 </div>
